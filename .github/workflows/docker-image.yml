@@ -1,0 +1,28 @@
+name: Build and push on Docker Hub
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: build image
+        run: docker build . -t sohailakhtar1/frontend:latest
+
+
+      - name: push on docker
+        run: |
+          docker login -u sohailakhtar1 -p ${{secrets.DOCKER_PASSWORD}}
+          docker push sohailakhtar1/frontend:latest
+
+
+
+  
