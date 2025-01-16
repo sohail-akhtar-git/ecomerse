@@ -17,7 +17,7 @@ function Search() {
   useEffect(() => {
     var query = convertToSolrQuery(id, "description", "");
 
-    let url = `/api/search?query=${query}`; // Use the id to fetch product data from the API
+    let url = `http://localhost:5000/api/search?query=${query}`; // Use the id to fetch product data from the API
     console.log(url);
     console.log(query);
     fetch(url)

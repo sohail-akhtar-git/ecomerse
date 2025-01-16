@@ -27,7 +27,7 @@ function Category() {
   }, [location]);
 
   useEffect(() => {
-    const url = "api/category"; // Replace with your API URL
+    const url = "http://localhost:5000/api/category"; // Replace with your API URL
 
     fetch(url)
       .then((response) => {

@@ -31,7 +31,7 @@ function Login  () {
       "email":email,
       "password":password
     }
-    var url = 'api/login';
+    var url = 'http://localhost:5000/api/login';
     fetch(url, {
       method: 'POST',
       headers: {

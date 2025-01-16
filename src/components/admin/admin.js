@@ -32,7 +32,7 @@ const AddProduct = () => {
       console.log("Product Category:", productCategory);
     //   console.log("Product Image:", productImage);
 
-      const response = await fetch("api/products", {
+      const response = await fetch("http://localhost:5000/api/products", {
         method: "POST",
         headers:{'Content-Type':"application/json"},
         body: JSON.stringify(formData),

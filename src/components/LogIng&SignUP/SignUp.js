@@ -36,7 +36,7 @@ const SignupForm = () => {
       return;
     }
 
-    var url = 'api/signup';
+    var url = 'http://localhost:5000/api/signup';
     fetch(url, {
       method: 'POST',
       headers: {

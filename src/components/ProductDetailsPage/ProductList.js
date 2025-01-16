@@ -16,10 +16,10 @@ function ProductList() {
   const [itemsPerPage] = useState(5); // Set the number of items per page
 
   useEffect(() => {
-    let url = `/api/products?id=${id}`; // Use the id to fetch product data from the API
+    let url = `http://localhost:5000/api/products?id=${id}`; // Use the id to fetch product data from the API
 
     if (!id) {
-      url = `/api/products`;
+      url = `http://localhost:5000/api/products`;
     }
 
     fetch(url)
