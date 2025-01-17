@@ -16,7 +16,8 @@ function Search() {
 
   useEffect(() => {
     var query = convertToSolrQuery(id, "description", "");
-    let url = `http://localhost:8983/solr/productCore/select?indent=true&q.op=OR&q=${query}`; // Use the id to fetch product data from the API
+
+    let url = `http://localhost:5000/api/search?query=${query}`; // Use the id to fetch product data from the API
     console.log(url);
     console.log(query);
     fetch(url)
@@ -27,10 +28,10 @@ function Search() {
         return response.json();
       })
       .then((data) => {
-        setProduct(data.response.docs); // Save the product data to state
-        setFilteredProducts(data.response.docs); // Initialize the filteredProducts state with all products
+        setProduct(data.data); // Save the product data to state
+        setFilteredProducts(data.data); // Initialize the filteredProducts state with all products
         setLoading(false); // Set loading to false once data is fetched
-        console.log(data.response.docs);
+        console.log(data.data);
       })
       .catch((error) => {
         setError(error.message); // Set error message
