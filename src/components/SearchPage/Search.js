@@ -28,10 +28,13 @@ function Search() {
         return response.json();
       })
       .then((data) => {
-        setProduct(data.data); // Save the product data to state
-        setFilteredProducts(data.data); // Initialize the filteredProducts state with all products
+        console.log(data);
+        setProduct(data.response.docs);
+
+        setProduct(data.response.docs); // Save the product data to state
+        setFilteredProducts(data.response.docs); // Initialize the filteredProducts state with all products
         setLoading(false); // Set loading to false once data is fetched
-        console.log(data.data);
+        console.log(data.response.docs);
       })
       .catch((error) => {
         setError(error.message); // Set error message
