@@ -16,7 +16,6 @@ function Search() {
 
   useEffect(() => {
     var query = convertToSolrQuery(id, "description", "");
-
     let url = `http://localhost:8983/solr/productCore/select?indent=true&q.op=OR&q=${query}`; // Use the id to fetch product data from the API
     console.log(url);
     console.log(query);
