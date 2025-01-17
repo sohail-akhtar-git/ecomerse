@@ -17,9 +17,9 @@ function Search() {
   useEffect(() => {
     var query = convertToSolrQuery(id, "description", "");
 
-    let url = `/api/search?query=${query}`; // Use the id to fetch product data from the API
+    let url = `http://localhost:5000/api/search?query=${query}`; // Use the id to fetch product data from the API
     console.log(url);
-    // console.log(query);
+    console.log(query);
     fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -29,12 +29,12 @@ function Search() {
       })
       .then((data) => {
         console.log(data);
-        setProduct(data.response.docs);
+        setProduct(data.data);
 
-        setProduct(data.response.docs); // Save the product data to state
-        setFilteredProducts(data.response.docs); // Initialize the filteredProducts state with all products
+        setProduct(data.data); // Save the product data to state
+        setFilteredProducts(data.data); // Initialize the filteredProducts state with all products
         setLoading(false); // Set loading to false once data is fetched
-        console.log(data.response.docs);
+        console.log(data.data);
       })
       .catch((error) => {
         setError(error.message); // Set error message
@@ -174,7 +174,7 @@ function Search() {
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.items}</td>
-                <td>{item.discount}%</td>
+                <td>{item.discount}</td>
               </tr>
             ))}
           </tbody>
